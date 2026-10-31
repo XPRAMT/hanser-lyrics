@@ -8,8 +8,8 @@ Proofread timed lyrics (LRC) for hanser songs, maintained by XPRAMT.
 
 | File | Song |
 | --- | --- |
-| `2233 - 元素協奏.lrc` | 2233 - 元素協奏 |
-| `hanser - 水星.lrc` | hanser - 水星 (Japanese + Chinese translation) |
+| `lyrics/2233 - 元素協奏.lrc` | 2233 - 元素協奏 |
+| `lyrics/hanser - 水星.lrc` | hanser - 水星 (Japanese + Chinese translation) |
 
 ## Format
 
