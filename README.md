@@ -14,4 +14,4 @@ Proofread timed lyrics (LRC) for hanser songs, maintained by XPRAMT.
 MoeMusicPlayer reads `index.json` in the repository root to find lyrics by title and artist. After adding or renaming a lyrics file, run `python scripts/build_index.py` to regenerate it.
 
 - File name format: `artist[,artist...] - title.lrc` (several artists are separated by a comma; the first " - " splits the artists from the title).
-- Duration: `durations.json` maps a file name to "m:ss" (for example `"artist - title.lrc": "3:28"`); a file that is not listed uses its `[length:mm:ss]` tag if it has one, otherwise `durationMs` is `null`.
+- A new lyrics file gets an entry made from its file name, with `album` and `durationMs` (milliseconds) set to `null`; entries already in the list are never overwritten, so edit the title, artists, album or duration directly in `index.json`. An entry whose file is deleted is removed.
