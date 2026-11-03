@@ -11,12 +11,21 @@
       "file": "lyrics/2233 - 元素協奏.lrc"
     },
     {
+      "title": "Armed Angel",
+      "artists": [
+        "hanser"
+      ],
+      "album": null,
+      "durationMs": 230000,
+      "file": "lyrics/hanser - Armed Angel.lrc"
+    },
+    {
       "title": "水星",
       "artists": [
         "hanser"
       ],
       "album": null,
-      "durationMs": null,
+      "durationMs": 273000,
       "file": "lyrics/hanser - 水星.lrc"
     },
     {
