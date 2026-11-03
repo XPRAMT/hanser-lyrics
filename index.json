@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "songs": [
+    {
+      "title": "元素協奏",
+      "artists": [
+        "2233"
+      ],
+      "album": null,
+      "durationMs": 259000,
+      "file": "lyrics/2233 - 元素協奏.lrc"
+    },
+    {
+      "title": "水星",
+      "artists": [
+        "hanser"
+      ],
+      "album": null,
+      "durationMs": null,
+      "file": "lyrics/hanser - 水星.lrc"
+    },
+    {
+      "title": "吉巳行歌",
+      "artists": [
+        "幽舞越山",
+        "hanser"
+      ],
+      "album": null,
+      "durationMs": 208000,
+      "file": "lyrics/幽舞越山,hanser - 吉巳行歌.lrc"
+    }
+  ]
+}
