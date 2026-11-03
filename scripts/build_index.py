@@ -7,6 +7,7 @@
 - An entry whose file is still there is kept exactly as it is, so you can edit `title`, `artists`, `album` and
   `durationMs` (milliseconds) by hand in index.json and they are not overwritten.
 - An entry whose file is gone is removed.
+- The top-level `name` is the source name MoeMusicPlayer shows for these lyrics; it is kept as it is (edit it by hand).
 The app (MoeMusicPlayer) reads index.json to find a song by title and artist.
 """
 import json
@@ -18,11 +19,12 @@ LYRICS = ROOT / "lyrics"
 INDEX = ROOT / "index.json"
 
 
-def load_existing():
+def load_index():
     if not INDEX.exists():
-        return {}
+        return None, {}
     data = json.loads(INDEX.read_text(encoding="utf-8-sig"))
-    return {song["file"]: song for song in data.get("songs", []) if isinstance(song, dict) and "file" in song}
+    songs = {song["file"]: song for song in data.get("songs", []) if isinstance(song, dict) and "file" in song}
+    return data.get("name"), songs
 
 
 def entry_from_name(path):
@@ -40,7 +42,7 @@ def entry_from_name(path):
 
 
 def main():
-    existing = load_existing()
+    name, existing = load_index()
     songs = []
     added = 0
     for path in sorted(LYRICS.glob("*.lrc")):
@@ -53,7 +55,7 @@ def main():
             songs.append(entry)
             added += 1
     removed = len(set(existing) - {song["file"] for song in songs})
-    INDEX.write_text(json.dumps({"version": 1, "songs": songs}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    INDEX.write_text(json.dumps({"version": 1, "name": name, "songs": songs} if name else {"version": 1, "songs": songs}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"index.json: {len(songs)} songs ({added} added, {removed} removed)")
 
 
